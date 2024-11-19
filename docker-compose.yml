@@ -1,25 +1,39 @@
 version: "3.0"
 
 services:
+  # Backend service book lib
   db:
     image: postgres:15
-
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: hans
       POSTGRES_DB: bookdb
       POSTGRES_PASSWORD: hans971!
-
     ports:
      - "5432:5432"
-
     volumes:
       - db-data:/var/lib/postgresql/data
-
     networks:
       - app-network
 
+  # PGAdmin for administration databases
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4:8.9
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    env_file:
+      - .env
+    depends_on:
+      - db
+    networks:
+      - app-network
+    
 volumes:
   db-data:
+  pgadmin-data:
 
 networks:
   app-network:
