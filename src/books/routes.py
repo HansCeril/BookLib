@@ -1,7 +1,11 @@
 from fastapi import APIRouter, status, Depends
 from fastapi.exceptions import HTTPException
 from typing import List
-from src.books.schema import CompleteBookModel, BookUpdateModel, BookCreateModel
+from src.books.schema import (
+    CompleteBookModel,
+    BookUpdateModel,
+    BookCreateModel
+)
 from src.db.main import get_session
 from sqlmodel.ext.asyncio.session import AsyncSession
 from src.books.service import BookService
