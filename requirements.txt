@@ -4,5 +4,7 @@ pydantic===2.9.2
 asyncpg===0.30.0
 pydantic-settings===2.6.1
 sqlmodel===0.0.22
+alembic===1.14.0
+
 
 
