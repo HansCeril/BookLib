@@ -31,3 +31,10 @@ alembic revision --autogenerate -m "init"
 ```
 alembic upgrade head
 ```
+
+
+#### How to generate a JWT SECRET KEY
+```
+import secrets
+secrets.token_hex(16)
+```

@@ -17,7 +17,10 @@ class UserModel(SQLModel, table=True):
     username: str
     first_name: str
     last_name: str
-    email: str
+    email: str = Field(
+        max_length=40,
+        unique=True
+    )
     password_hash: str = Field(
         exclude=True
     )

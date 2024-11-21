@@ -33,3 +33,17 @@ class UserReadModel(BaseModel):
     password_hash: str = Field(exclude=True)
     created_at: datetime
     update_at: datetime
+
+
+class UserLoginModel(BaseModel):
+    email: str = Field(max_length=40)
+    password: str = Field(min_length=6)
+
+    model_config = {
+        "json_schema_extra": {
+            "example": {
+                "email": "hans@gmail.com",
+                "password": "testpass123",
+            }
+        }
+    }
